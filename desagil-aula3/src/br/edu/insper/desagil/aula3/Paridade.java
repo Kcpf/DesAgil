@@ -9,7 +9,10 @@ public class Paridade {
 		List<Integer> pares = new ArrayList<>();
 		List<Integer> impares = new ArrayList<>();
 
-		// seu código aqui
+		for (int number : numeros) {
+			if (number % 2 == 0) pares.add(number);
+			else impares.add(number);
+		}
 
 		List<List<Integer>> listas = new ArrayList<>();
 		listas.add(pares);
