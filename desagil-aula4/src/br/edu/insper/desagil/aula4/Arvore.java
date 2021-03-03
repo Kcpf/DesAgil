@@ -4,34 +4,22 @@ public class Arvore {
 
 	public String constroi(int n) {
 		String arvore = "";
-
-		int i = 0;
-		while (i < n) {
-			int j;
-
-			j = 0;
-			while (j < n - 1 - i) {
+		
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n - 1 -i; j++) {
 				arvore += " ";
-				j++;
 			}
-
-			j = 0;
-			while (j < i) {
+			for (int j = 0; j < i; j++) {
 				arvore += "/";
-				j++;
 			}
-
+			
 			arvore += "|";
-
-			j = 0;
-			while (j < i) {
+			
+			for (int j = 0; j < i; j++) {
 				arvore += "\\";
-				j++;
 			}
-
+			
 			arvore += "\n";
-
-			i++;
 		}
 
 		return arvore;

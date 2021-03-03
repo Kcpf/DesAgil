@@ -7,16 +7,7 @@ public class Primo {
 
 		int n = 2;
 		while (n <= limite) {
-			boolean temDivisor = false;
-
-			int d = 2;
-			while (d < n) {
-				if (n % d == 0) {
-					temDivisor = true;
-					break;
-				}
-				d++;
-			}
+			boolean temDivisor = ehPrimo(n);
 			
 			if (!temDivisor) {
 				total += 1;
@@ -26,5 +17,16 @@ public class Primo {
 		}
 
 		return total;
+	}
+
+	public boolean ehPrimo(int n) {
+		int d = 2;
+		while (d < n) {
+			if (n % d == 0) {
+				return true;
+			}
+			d++;
+		}
+		return false;
 	}
 }

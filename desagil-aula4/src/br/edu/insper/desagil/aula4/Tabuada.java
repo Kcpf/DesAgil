@@ -4,16 +4,13 @@ public class Tabuada {
 
 	public String constroi(int n) {
 		String tabuada = "";
-		int i = 1;
-		while (i <= n) {
-			int j = 1;
-			while (j <= n) {
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= n; j++) {
 				tabuada += (i * j) + " ";
-				j++;
 			}
 			tabuada += "\n";
-			i++;
 		}
+
 		return tabuada;
 	}
 
