@@ -19,12 +19,4 @@ class AlunoTest {
 		assertEquals("João", aluno.getNome());
 	}
 
-	@Test
-	public void testSetters() {
-		aluno.setId(2);
-		aluno.setNome("Maria");
-
-		assertEquals(2, aluno.getId());
-		assertEquals("Maria", aluno.getNome());
-	}
 }

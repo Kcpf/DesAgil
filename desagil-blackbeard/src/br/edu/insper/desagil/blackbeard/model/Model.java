@@ -50,7 +50,7 @@ public class Model {
 
 	public Disciplina adicionaDisciplina(String codigo, String nome) {
 		if (codigo.isBlank() == false && nome.isBlank() == false) {
-			Disciplina dp = new Disciplina(codigo, nome, new ArrayList<String>());
+			Disciplina dp = new Disciplina(codigo, nome);
 			this.disciplinas.add(dp);
 			return dp;
 		}
@@ -59,7 +59,7 @@ public class Model {
 
 	public Oferecimento adicionaOferecimento(Disciplina disciplina) {
 		if (disciplina != null) {
-			Oferecimento lays = new Oferecimento(disciplina, new HashMap<Date, String>(), new ArrayList<Matricula>());
+			Oferecimento lays = new Oferecimento(disciplina);
 			this.oferecimentos.add(lays);
 			return lays;
 		}
@@ -68,8 +68,7 @@ public class Model {
 
 	public Oferecimento adicionaMatricula(Aluno aluno, int i) {
 		if (aluno != null && i >= 0) {
-			Matricula mat = new Matricula(aluno, false);
-			this.oferecimentos.get(i).addMatricula(mat);
+			this.oferecimentos.get(i).matricula(aluno);
 			return this.oferecimentos.get(i);
 		}
 		
