@@ -12,8 +12,8 @@ import br.edu.insper.desagil.blackbeard.model.base.Matricula;
 import br.edu.insper.desagil.blackbeard.model.base.Oferecimento;
 
 public class Model {
-	private List<Aluno> alunos;
-	private List<Disciplina> disciplinas;
+	private Map<Integer, Aluno> alunos;
+	private Map<String, Disciplina> disciplinas;
 	private List<Oferecimento> oferecimentos;
 
 	private List<AlunoListener> alunoListeners;
@@ -22,8 +22,8 @@ public class Model {
 	private List<MatriculaListener> matriculaListeners;
 
 	public Model() {
-		this.alunos = new ArrayList<>();
-		this.disciplinas = new ArrayList<>();
+		this.alunos = new HashMap<>();
+		this.disciplinas = new HashMap<>();
 		this.oferecimentos = new ArrayList<>();
 
 		this.alunoListeners = new ArrayList<>();
@@ -42,7 +42,7 @@ public class Model {
 	public Aluno adicionaAluno(int id, String nome) {
 		if (id > this.alunos.size() && nome.isBlank() == false) {
 			Aluno al = new Aluno(id, nome);
-			this.alunos.add(al);
+			this.alunos.put(id, al);
 			return al;
 		}
 		return null;
@@ -51,7 +51,7 @@ public class Model {
 	public Disciplina adicionaDisciplina(String codigo, String nome) {
 		if (codigo.isBlank() == false && nome.isBlank() == false) {
 			Disciplina dp = new Disciplina(codigo, nome);
-			this.disciplinas.add(dp);
+			this.disciplinas.put(codigo, dp);
 			return dp;
 		}
 		return null;
@@ -132,4 +132,20 @@ public class Model {
 	public void addMatriculaListener(MatriculaListener listener) {
 		this.matriculaListeners.add(listener);
 	}
+
+	public Aluno getAluno(int id) {
+		for (Integer internalId : alunos.keySet()) {
+			if (internalId == id) return alunos.get(internalId);
+		}
+		return null;
+	}
+
+	public Disciplina getDisciplina(String codigo) {
+		for (String internalCodigo : disciplinas.keySet()) {
+			if (internalCodigo == codigo) return disciplinas.get(internalCodigo);
+		}
+		return null;
+	}
+	
+	
 }

@@ -25,5 +25,10 @@ class DisciplinaTest {
 		assertEquals("Design de Software", disciplina.getNome());
 		assertEquals(expectedEmenta, disciplina.getEmenta());
 	}
+	
+	@Test
+	public void testToString() {
+		assertEquals(disciplina.toString(), disciplina.getCodigo() + ": " + disciplina.getNome());
+	}
 
 }
